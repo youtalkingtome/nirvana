@@ -1,0 +1,22 @@
+spring:
+  datasource:
+    url: jdbc:sqlserver://localhost:1433;databaseName=nirvana;encrypt=false
+    username: sa
+    password: Mssql@1377
+    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+  jpa:
+    hibernate:
+      ddl-auto: update  # or 'none', 'validate', 'create', or 'create-drop' depending on your needs
+    show-sql: true      # Logs SQL queries
+    database-platform: org.hibernate.dialect.SQLServerDialect
+  sql:
+    init:
+      mode: always      # Ensures SQL scripts run at startup if you have schema/data initialization scripts
+      platform: sqlserver
+  liquibase:
+    enabled: false      # Enable/disable Liquibase if you're using it for migrations
+
+logging:
+  level:
+    org.hibernate.SQL: DEBUG  # Logs Hibernate-generated SQL
+
